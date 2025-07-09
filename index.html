@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="heading">
+            <div class="rui-text">RUI</div>
+            <h1>Portfolio</h1>
+        </div>
+        <div class="container">
+            <div class="taskbar" id="taskbar">
+                <div class="taskbar-item" onclick="selectTask('home')">
+                    <span class="icon"></span> PROFILE
+                </div>
+                <div class="taskbar-item" onclick="selectTask('search')">
+                    <span class="icon"></span> SKILL
+                </div>
+                <div class="taskbar-item" onclick="selectTask('settings')">
+                    <span class="icon"></span> HOBBY
+                </div>
+                <div class="taskbar-item" onclick="selectTask('special')">
+                    <span class="icon"></span> Experience　Story
+                </div>
+            </div>
+
+            <div class="icon-container">
+                <div class="menu-icon" id="menuIcon">
+                    ☰
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="section-profiles">
+            <div id="profiles">
+                <h2>PROFILE</h2>
+            </div>
+            <div class="projects">
+                <div class="certification">
+                    <div class="img-slide">
+                        <div class="img-sliders">
+                            <img src="/IMG_0448.jpg" width="250" height="300">
+                            <img src="/IMG_1912.jpg" width="250" height="300">
+                        </div>
+                    </div>
+                    <div class="justs">
+                        <div class="adjust">
+                            <h3 class="pro">名前</h3>
+                            <h4>盛田琉生（１９）</h4>
+                        </div>
+                        <div class="adjust">
+                            <h3 class="pro">出身地</h3>
+                            <h4>岩手県宮古市</h4>
+                        </div>
+                        <div class="adjust">
+                            <h3 class="pro">趣味</h3>
+                            <h4>音楽鑑賞</h4>
+                        </div>
+                        <div class="adjust">
+                            <h3 class="pro">特技</h3>
+                            <h4>バスケットボール・水泳</h4>
+                        </div>
+                        <div class="adjust">
+                            <h3 class="pro">職業</h3>
+                            <h4>専門学生</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="certification2">
+                    <div class="flex">
+                        <div class="img-slide">
+                            <div class="img-sliders">
+                                <img src="/IMG_1285.jpg" width="250" height="300">
+                                <img src="/IMG_1587.jpg" width="250" height="300">
+                            </div>
+                        </div>
+                        <div class="justs">
+                            <h3 class="center">高校時代</h3>
+                            <div class="adjust2">
+                                <h3 class="pro2">出身校</h3>
+                                <h4>宮古商工高等学校</h4>
+                            </div>
+                            <div class="adjust2">
+                                <h3 class="pro2">部活動</h3>
+                                <h4 class="club">ヨット部</h4>
+                            </div>
+                            <div class="adjust2">
+                                <h4 class="club2">↓　　転部</h4>
+                            </div>
+                            <div class="adjust2">
+                                <h4 class="club3">バスケットボール部</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="center2">宮古で行っていた飲食店</h3>
+                    <div class="restaurant">
+                        <div class="tenmaru-gomen">
+                            <h4 class="tenmaru">てんまる食堂</h4>
+                            <p>てんまる食堂の人気メニューである真鱈ラーメンも特性塩味スープと真鱈のから揚げが相性が良くとてもおいしいですが、私のおすすめであるから揚げ定食もとてもおいしい地元の食堂です。他にも丼と同じくらい大きいチャーシューがパラッとすぐほぐれておいしくすべての食材にこだわっているので是非食べてほしいです。
+                            </p>
+                        </div>
+                        <div class="eat-ten">
+                            <img src="/てんまる.jpg" width="250" height="170" style="border-radius: 10px;">
+                        </div>
+                    </div>
+
+                    <div class="restaurant">
+                        <div class="tenmaru-gomen">
+                            <h4 class="gomen">豪ーめん</h4>
+                            <p>盛岡にもあるが見た目で一番インパクトが強く、食べ応えがある。野菜の量が結構あるため一杯で満足したい人におすすめできる。ラーメンのほかにも油そばや冷やし担々麺などもあり、辛さもちょうどよくガツンとニンニクもきいていてとてもおいしく、久々に行ってみたい、気分変えたいという方はぜひ行った方がいいラーメン屋です。</p>
+                        </div>
+                        <div class="eat-go" style="margin-top: 30px;">
+                            <img src="/ごーめん.jpg" width="250" height="170" style=" border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="section-skill">
+            <div id="profiles">
+                <h2>SKILL</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skillcard1">
+                    <h3>フロントエンド</h3>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('html-css')">・HTML、CSS</span><br>
+                    </p>
+                    <div id="html-css-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('html-css')">×</button>
+                        <h4>HTML、CSS</h4>
+                        <p>Webブラウザ上で見やすいようなデザインでコードを書くことができ、課題にも周りと協力して行うことができた。</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('javascript')">・JavaScript</span>
+                    </p>
+                    <div id="javascript-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('javascript')">×</button>
+                        <h4>JavaScript</h4>
+                        <p>HTML,CSSを活用しながら、それにアニメーションみたいな動きをつけ扱いやすいブラウザを作成することができた。</p>
+                    </div>
+                </div>
+                <div class="skillcard2">
+                    <h3>バックエンド</h3>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('python')">・Python</span>
+                    </p>
+                    <div id="python-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('python')">×</button>
+                        <h4>Python</h4>
+                        <p>Pythonではポーカーゲームや図書管理アプリなどを作り、CPUとの対戦や管理者メニューなどを実装し多くのことを学ぶことができた。</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('php')">・PHP</span>
+                    </p>
+                    <div id="php-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('php')">×</button>
+                        <h4>PHP</h4>
+                        <p>HTMLを用いて、関数で文字を表示させたりなど難しいところが多く、考えることがたくさんあるのでこれからもっと理解できるように勉強していきたい。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-gallery">
+                <div class="gallery-container">
+                    <div class="gallery-track" id="galleryTrack">
+                        <div class="gallery-slide">
+                            <img src="/ホテル管理.png" alt="ホテル管理">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="/ポーカーゲーム.png" alt="ポーカーゲーム">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="/図書管理.png" alt="図書管理">
+                        </div>
+                    </div>
+                    <button class="gallery-nav prev" onclick="previousSlide()">❮</button>
+                    <button class="gallery-nav next" onclick="nextSlide()">❯</button>
+                </div>
+                <div class="gallery-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <div class="skills-container">
+                <div class="get-skill">
+                    <h3>保有資格</h3>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('python-skill')">・Pythonプログラミング認定試験 3級</span><br>
+                    </p>
+                    <div id="python-skill-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('python-skill')">×</button>
+                        <h4>Pythonプログラミング認定試験</h4>
+                        <p>Pythonの知識的な問題で、3級なのでそこまで難しいものはなく、簡単に解くことができた。</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('system-skill')">・文部科学省公 情報検定
+                            システムエンジニア認定</span><br>
+                    </p>
+                    <div id="system-skill-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('system-skill')">×</button>
+                        <h4>文部科学省公 情報検定 システムエンジニア認定</h4>
+                        <p>基礎力と実務対応力が必要になる問題で、システム開発の各工程に関する知識などが出てある程度勉強していたため簡単に解くことができた。</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('program-skill')">・文部科学省認定 情報検定 プログラム認定</span><br>
+                    </p>
+                    <div id="program-skill-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('program-skill')">×</button>
+                        <h4>文部科学省認定 情報検定 プログラム認定</h4>
+                        <p>問題解決力と論理的思考力が問われるもので、アルゴリズムの理解などが必要で少し苦戦したが解けない問題ではなかったので最後まで解くことができ合格することができた</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('Bookkeeping-skill')">・全商簿記検定 ２級</span><br>
+                    </p>
+                    <div id="Bookkeeping-skill-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('Bookkeeping-skill')">×</button>
+                        <h4>全商簿記検定 ２級</h4>
+                        <p>商業簿記に加えて、株式会社の基本的な会計処理に関する知識などが問われ、会計処理などの知識ではそこまで得意ではなかったが商業簿記で多く解くことができた。</p>
+                    </div>
+                    <p>
+                        <span class="skill-item" onclick="showDetails('col-skill')">・電卓実務検定 ２級</span><br>
+                    </p>
+                    <div id="col-skill-details" class="skill-details">
+                        <button class="close-btn" onclick="hideDetails('col-skill')">×</button>
+                        <h4>電卓実務検定 ２級</h4>
+                        <p>電卓になれるのに少し時間がかかったが、掛け算や割り算など細かいとこまで解くことができた。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-hobby">
+            <div id="profiles">
+                <h2>HOBBY</h2>
+            </div>
+            <div class="projects">
+                <div class="certification">
+                    <div class="sinking">
+                        <div class="singer-details">
+                            <h3 class="singer">Mrs. GREEN APPLE</h3>
+                            <p>リズムのある曲から静かな曲まで幅広く歌っており、どの曲にも共感できるような歌詞が込められている点にとても惹かれました。気分や場面によって楽しめるのはもちろん、聴くたびに新たな発見や感情に気づかされるところが魅力です。
+                            </p>
+                            <div class="align">
+                                <div class="rank">
+                                    <h5 class="number">No1</h5>
+                                    <p class="num">僕のこと</p>
+                                </div>
+                                <div class="rank">
+                                    <h5 class="number">No2</h5>
+                                    <p class="num">天国</p>
+                                </div>
+                                <div class="rank">
+                                    <h5 class="number">No3</h5>
+                                    <p class="num">Soranji</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sing">
+                            <img src="/ミセス.jpeg" width="320" height="220" style=" border-radius: 10px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="certification">
+                    <div class="sinking">
+                        <div class="sing2">
+                            <img src="/oneok.avif" width="320" height="220" style=" border-radius: 10px;">
+                        </div>
+                        <div class="singer-details2">
+                            <h3 class="singer2">ONE OK ROCK</h3>
+                            <p>激しい曲から落ち着いた曲まで多く歌っており、曲の一つ一つに元気づけられるような歌詞があり、疲れた日や落ち込んだ日でも頑張ろうと思えくらいとても魅力的なバンドです。海外でも活動しており、外国人にも人気のあるバンドです。
+                            </p>
+                            <div class="align2">
+                                <div class="rank2">
+                                    <h5 class="number">No1</h5>
+                                    <p class="num2">We are</p>
+                                </div>
+                                <div class="rank2">
+                                    <h5 class="number">No2</h5>
+                                    <p class="num2">Renegades</p>
+                                </div>
+                                <div class="rank2">
+                                    <h5 class="number">No3</h5>
+                                    <p class="num2">Cry out</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="section-experiencestory">
+            <div id="profiles">
+                <h2>Experience　Story</h2>
+            </div>
+            <div class="projects">
+                <div class="skillcard">
+                    <h3></h3>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
