@@ -31,6 +31,7 @@ body::after {
     pointer-events: none;
 }
 
+
 .overlay-from-header body::after {
     top: 120px;
 }
@@ -102,7 +103,7 @@ h1 {
     margin-top: 50px;
     margin-left: 113px;
     width: 1000px;
-    height: 1200px;
+    height: 1300px;
     border-radius: 5px;
 }
 
@@ -111,9 +112,9 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
     margin: 20px;
     margin-top: 50px;
-    margin-left: 135px;
-    width: 950px;
-    height: 1230px;
+    margin-left: 113px;
+    width: 1000px;
+    height: 2240px;
     border-radius: 5px;
 }
 
@@ -122,9 +123,9 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
     margin: 20px;
     margin-top: 50px;
-    margin-left: 135px;
-    width: 950px;
-    height: 750px;
+    margin-left: 113px;
+    width: 1000px;
+    height: 970px;
     border-radius: 5px;
 }
 
@@ -133,9 +134,9 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
     margin: 20px;
     margin-top: 50px;
-    margin-left: 135px;
-    width: 950px;
-    height: 1200px;
+    margin-left: 113px;
+    width: 1000px;
+    height: 850px;
     border-radius: 5px;
 }
 
@@ -152,7 +153,6 @@ h1 {
     margin-left: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    /* padding: 10px; */
     width: 880px;
     background-color: #D4FFF2;
     padding: 40px;
@@ -163,7 +163,7 @@ h1 {
     margin-left: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
+    padding: 30px 40px 20px 40px;
     margin-left: auto;
     margin-right: auto;
     width: 880px;
@@ -183,23 +183,83 @@ h1 {
 }
 
 .menu-icon {
-    background-color: #4a90e2;
-    color: white;
-    font-size: 20px;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #667eea);
+    border-radius: 40px;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.menu-icon:hover {
-    background-color: #357ab8;
-    transform: scale(1.05);
+
+.hamburger-icon,
+.close-icon {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes lineTop {
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes lineMiddle {
+  50%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes lineBottom {
+  50% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+.menu-icon.active span {
+  animation: lineMiddle 250ms step-end forwards;
+}
+.menu-icon.active::before {
+  animation: lineTop 250ms forwards;
+}
+.menu-icon.active::after {
+  animation: lineBottom 250ms forwards;
+}
+
+.menu-icon.default span {
+  animation: lineMiddle 250ms step-end reverse;
+}
+.menu-icon.default::before {
+  animation: lineTop 250ms reverse;
+}
+.menu-icon.default::after {
+  animation: lineBottom 250ms reverse;
+}
+
+
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .taskbar {
@@ -225,19 +285,69 @@ h1 {
     color: white;
     padding: 15px 20px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 10px;
+    user-select: none;
+    position: relative;
+    background-color: transparent;
 }
 
 .taskbar-item:hover {
-    background-color: #555;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
+.taskbar-item.active {
+    background-color: #4a90e2;
+    transform: translateY(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.taskbar-item.pressed {
+    transform: translateY(6px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    background-color: #357ab8;
+}
+
+.taskbar-item.active:hover {
+    background-color: #357ab8;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .taskbar {
+        width: 100%;
+        right: -100%;
+    }
 }
 
 .active-section {
@@ -249,7 +359,6 @@ h1 {
     bottom: 20px;
     right: 20px;
     background-color: rgba(74, 144, 226, 0.7);
-    color: white;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -450,34 +559,30 @@ h4 {
 
 
 .skill-item {
-    display: inline-block;
-    padding: 8px 16px;
-    margin: 4px 8px 4px 0;
-    background-color: #D4FFF2;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-weight: 500;
-    color: #495057;
-    position: relative;
-    font-size: 20px;
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
 }
 
-.skill-item:hover {
-    background-color: #98e8d0;
-    border-color: #dee2e6;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
 
 .skill-details {
-    display: none;
-    margin-top: 10px;
+    margin-bottom: 20px;
     padding: 15px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #e9f4ff;
+    border-radius: 8px;
+    border: 1px solid #b3d9ff;
+}
+
+.skill-details p {
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1.6;
+    color: #333;
 }
 
 .skill-details.show {
@@ -551,15 +656,16 @@ h4 {
 }
 
 .get-skill h3 {
-    margin-top: 0;
+    color: #333;
     border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .image-gallery {
     position: relative;
     width: 100%;
-    max-width: 880px;
+    max-width: 980px;
     margin: 20px auto;
     background: #fff;
     border-radius: 15px;
@@ -570,26 +676,34 @@ h4 {
 .gallery-container {
     position: relative;
     width: 100%;
-    height: 320px;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
 }
+
+
 
 .gallery-track {
     display: flex;
-    width: 300%;
+    width: 400%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .gallery-slide {
     background-color: #D4FFF2;
-    width: 33.33%;
+    width: 25%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.block-regu {
+    display: block;
+    text-align: center;
+    background-color: transparent;
 }
 
 .gallery-slide img {
@@ -601,9 +715,6 @@ h4 {
     transition: transform 0.3s ease;
 }
 
-.gallery-slide img:hover {
-    transform: scale(1.05);
-}
 
 .gallery-nav {
     position: absolute;
@@ -683,20 +794,25 @@ h4 {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-.qualification-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.icon-container {
+    background: linear-gradient(135deg, #667eea 0%);
     color: white;
-    padding: 15px;
-    border-radius: 10px 10px 0 0;
+    padding: 10px 13px 10px 13px;
+    border-radius: 70px 70px 70px 70px;
     text-align: center;
-    margin: -20px -20px 20px -20px;
 }
+
 
 .qualification-header h3 {
     margin: 0;
     font-size: 28px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border: none;
+}
+
+.artist {
+    font-size: 25px;
+    text-align: center;
 }
 
 .singer {
@@ -789,10 +905,64 @@ h4 {
     gap: 20px;
 }
 
-
-
 .sing2 {
     width: 40%;
     height: 220px;
     margin-top: 35px;
 }
+
+
+.experience-title {
+    color: #4a5568;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.experience-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+.experience-content {
+    color: #2d3748;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.period {
+    color: #718096;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.exp {
+    margin-bottom: 30px;
+}
+
+.footer-p {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
