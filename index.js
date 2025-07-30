@@ -16,7 +16,6 @@ function showTaskbar() {
     overlay.classList.add('show');
     menuIcon.classList.add('active');
     iconSpan.className = 'icon close-icon'; 
-    menuIcon.innerHTML = '<span class="close-icon">✕</span>';  
 }
 
 function hideTaskbar() {
@@ -143,4 +142,14 @@ menuIcon.addEventListener('click', function (e) {
     toggleTaskbar();
 });
 
-overlay.addEventListener('click', hideTaskbar);
+function resizeOverlay() {
+    const overlay = document.getElementById('dark-overlay');
+    const totalHeight = document.body.scrollHeight;
+    const viewportHeight = window.innerHeight;
+    const height = totalHeight - viewportHeight;
+
+    overlay.style.height = (height > 0 ? height : 0) + 'px';
+  }
+
+  window.addEventListener('load', resizeOverlay);
+  window.addEventListener('resize', resizeOverlay);
